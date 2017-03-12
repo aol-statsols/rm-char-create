@@ -1,0 +1,15 @@
+Package: rolemasterCharacterCreator
+Title: Create a Character Sheet Simply
+Version: 0.9.0.1
+NeedsCompilation: yes
+Date/Publication: 2017-03-08 17:14:25
+Authors@R: person("Aodhán", "O'Leary", email = "aodhanol@gmail.com", role = c("aut", "cre"))
+Maintainer: Aodhán O'Leary <aodhanol@gmail.com>
+Author: Aodhán O'Leary [aut, cre]
+Description: It takes inputs from a user and generates a character sheet for them. It takes care of all the calculations/dice rolling/dev point generation and just gets them to make decisions.
+Depends: R (>= 3.3.1)
+License: GPL-2 | GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Imports: DBI, RSQLite, ggplot2, gridExtra, jsonlite, png 
