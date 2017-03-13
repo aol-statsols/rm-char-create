@@ -71,3 +71,5 @@ import(tibble)
 import(munsell)
 import(colorspace)
 import(plyr)
+import(assertthat)
+
