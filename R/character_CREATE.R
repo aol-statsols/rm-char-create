@@ -140,14 +140,6 @@ background_Options.Benefits.NO.ROLLING <- background_Options_Assignment_NO_ROLLI
 																						skills.Increase.Record.DF,background_Special_Tables_List,flaws_Table,
 																						background.Skills.Increase.Record.DF )
 	
-    if(unlist(background_Options.Benefits.NO.ROLLING)[1] == -1){ 
-        stat.Tmp <- stats.Tmp.Pot[,1]
-        stat.Pot <- stats.Tmp.Pot[,2]
-    } else{ 
-        stat.Tmp <- background_Options.Benefits.NO.ROLLING[[3]] 
-        stat.Pot <- background_Options.Benefits.NO.ROLLING[[4]]
-        background.Skills.Increase.Record.DF <- background_Options.Benefits.NO.ROLLING[[5]]
-    }
     
     recreate.Command[[5]] <- background_Options.Benefits.ROLLING
     recreate.Command[[6]] <- background_Options.Benefits.NO.ROLLING
@@ -160,7 +152,8 @@ background_Options.Benefits.NO.ROLLING <- background_Options_Assignment_NO_ROLLI
                                                 background.No_of_Children, background.Sibling_Rank, background.Family_Status, background.Environment.Raised,
                                                 background.Clanhead.Relation, background.Clan.Status, background.Social_Class, background.Occupation, contact.Info,
                                                 char.Age, char.Species, char.Species.Raised, char.Sex, char.Height, char.Weight, char.Society, char.Class, 
-                                                skills.Increase.Record.DF, background.Skills.Increase.Record.DF, level_0_Skills.Increase.Record.List )
+                                                skills.Increase.Record.DF, background.Skills.Increase.Record.DF, level_0_Skills.Increase.Record.List )                          
+                                                
 background.Stuff[[1]][[7]] = paste0( char.Society, " - ", background.Stuff[[1]][[7]] )
 recreate.Command[7:17] = background.Stuff[[1]]
 
@@ -171,9 +164,17 @@ recreate.Command[7:17] = background.Stuff[[1]]
     char.Move_Mod = background.Stuff[[5]]
     level_0_Skills.Increase.Record.List = background.Stuff[[6]]
     skills.Increase.Record.DF.Level_1 = background.Stuff[[7]]
+          
+    if(unlist(background_Options.Benefits.NO.ROLLING)[1] == -1){ 
+        stat.Tmp <- stats.Tmp.Pot[,1]
+        stat.Pot <- stats.Tmp.Pot[,2]
+    } else{ 
+        stat.Tmp <- background_Options.Benefits.NO.ROLLING[[3]] 
+        stat.Pot <- background_Options.Benefits.NO.ROLLING[[4]]
+        level_0_Skills.Increase.Record.List[[1]] <- level_0_Skills.Increase.Record.List[[1]][,"NumTimesIncreased"] + background_Options.Benefits.NO.ROLLING[[5]][,"NumTimesIncreased"]
+    }                  
      
-char.Age.List <- list( char.Age )
-     
+    char.Age.List <- list( char.Age )
      
     recreate.Command[[18]] <- level_0_Skills.Increase.Record.List[[1]]
     
