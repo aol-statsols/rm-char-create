@@ -117,8 +117,8 @@ char.Species.Raised <- char.Basics[[1]][6]
 char.Class <- class.And.Stats[[1]][1]
 char.Class.FullName <- class.And.Stats[[1]][2]
 stats.Tmp.Pot <- class.And.Stats[[2]]
-char.Realm <- class.And.Stats[[3]][1]
-char.Realm.Name <- class.And.Stats[[3]][2]
+char.Realm <- class.And.Stats[[3]]
+char.Realm.Name <- class.And.Stats[[4]]
 
 recreate.Command[[3]] <- stats.Tmp.Pot
 recreate.Command[[4]] <- c( char.Class, char.Realm )
@@ -161,9 +161,9 @@ background_Options.Benefits.NO.ROLLING <- background_Options_Assignment_NO_ROLLI
                                                 background.Clanhead.Relation, background.Clan.Status, background.Social_Class, background.Occupation, contact.Info,
                                                 char.Age, char.Species, char.Species.Raised, char.Sex, char.Height, char.Weight, char.Society, char.Class, 
                                                 skills.Increase.Record.DF, background.Skills.Increase.Record.DF, level_0_Skills.Increase.Record.List )
-
-background.Stuff[[1]][[7]] = paste0( char.Society, " - ", background.Stuff[[1]][[7]] )                                                                 
+background.Stuff[[1]][[7]] = paste0( char.Society, " - ", background.Stuff[[1]][[7]] )
 recreate.Command[7:17] = background.Stuff[[1]]
+
     char.Age = background.Stuff[[1]][[9]]
     char.Age_Die = background.Stuff[[2]]
     char.Height = background.Stuff[[3]]
