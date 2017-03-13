@@ -129,8 +129,16 @@ if( nchar(char.Species.Out) < max.nChar.Align ) char.Species.Out <- paste0(char.
     xSpecies = 0.66
     ySpecies = 0.927
     
-char.Realm.Out <- stats_Fullname[stats %in% char.Realm]
-    if( length(char.Realm.Out) > 1 ) char.Realm.Out <- paste(char.Realm.Out,collapse=" & ")
+    realms = c("Essence","Channeling","Mentalism")
+    realms.Stats = c("Empathy","Intuition","Presence")
+    
+char.Realm.Out <- paste0( realms[realms.Stats %in% stats_Fullname[stats %in% char.Realm]], " (uses ", stats_Fullname[stats %in% char.Realm], ")" )
+    if( length(char.Realm.Out) > 1 ){ 
+        shortRealmStats <- c("Em","In","Pr")
+        char.Realm.Out.Tmp <- char.Realm.Out
+        for( i.realm in 1:length(realms.Stats) ) char.Realm.Out.Tmp <- gsub( realms.Stats[i.realm], shortRealmStats[i.realm], char.Realm.Out.Tmp )
+        char.Realm.Out <- paste(char.Realm.Out.Tmp,collapse=" & ")
+    }
 if( nchar(char.Realm.Out) < max.nChar.Align ) char.Realm.Out <- paste0(char.Realm.Out,paste0(rep(" ",max.nChar.Align - nchar(char.Realm.Out)),collapse=""), collapse = "")
     xRealm = 0.66
     yRealm = 0.927-1*.019
@@ -216,7 +224,9 @@ yMove <- 0.7055-1*0.0215
     s.Left_Justified <- c( rep( ifelse( img.Size == "NORM", 1.6, ifelse( img.Size == "MED", 8, 17 ) ), 2 ), 
                                 rep( ifelse( img.Size == "NORM", 1, ifelse( img.Size == "MED", 5, 14 ) ), length(x.Left_Justified) - 2 - length(backgroundOptions) ),
                                 rep( ifelse( img.Size == "NORM", 0.75, ifelse( img.Size == "MED", 3.75, 10.5 ) ), length(backgroundOptions) ))
-    
+    s.Left_Justified[ n.Left_Justified == char.Realm.Out ] = ifelse( length(char.Realm) > 1,
+                                                                    ifelse( img.Size == "NORM", 1.12, ifelse( img.Size == "MED", 3.5, 9.8 ) ),
+                                                                    ifelse( img.Size == "NORM", 1, ifelse( img.Size == "MED", 5, 14 ) ) )
     
     text(x,y, n, cex=s, col = "black")
     text(x.Left_Justified,y.Left_Justified, n.Left_Justified, cex=s.Left_Justified, adj = c(0,0.5), col = "black")
