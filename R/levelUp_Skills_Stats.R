@@ -187,5 +187,5 @@ stat.Dev[i.Stat] = ifelse( i.Stat < 6, min(dev_Points[stat.Tmp[i.Stat] <= stat])
     }   
     skills.Each.Level.Fully.Assigned[[length(skills.Each.Level.Fully.Assigned)]][[1]][,"NumTimesIncreased"] = 
         skills.Each.Level.Fully.Assigned[[length(skills.Each.Level.Fully.Assigned)]][[1]][,"TotalRanks"]
-    return( list( skills.Each.Level.Fully.Assigned, stat.List, skills.Each.Level.List, level_Up.Repeated.Result.List) )
+    return( list( skills.Each.Level.Fully.Assigned, stat.List, skills.Each.Level.List, level_Up.Repeated.Result.List, char.Age.List) )
 }
