@@ -161,7 +161,8 @@ background_Options.Benefits.NO.ROLLING <- background_Options_Assignment_NO_ROLLI
                                                 background.Clanhead.Relation, background.Clan.Status, background.Social_Class, background.Occupation, contact.Info,
                                                 char.Age, char.Species, char.Species.Raised, char.Sex, char.Height, char.Weight, char.Society, char.Class, 
                                                 skills.Increase.Record.DF, background.Skills.Increase.Record.DF, level_0_Skills.Increase.Record.List )
-                                                                        
+
+background.Stuff[[1]][[7]] = paste0( char.Society, " - ", background.Stuff[[1]][[7]] )                                                                 
 recreate.Command[7:17] = background.Stuff[[1]]
     char.Age = background.Stuff[[1]][[9]]
     char.Age_Die = background.Stuff[[2]]
