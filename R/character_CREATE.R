@@ -211,6 +211,7 @@ level_Up.Repeated.Result.List, skills.Each.Level.List
     stat.List <- levelUp_Skills_Stats.Results[[2]]
                 
     stats.End <- stat.List[[length(stat.List)]] #THE CHARACTER'S STATS AT THE END OF LEVELING UP
+    char.Age.List <- levelUp_Skills_Stats.Results[[5]]
     
     recreate.Command[22:25] <- levelUp_Skills_Stats.Results[1:4]
     #CREATE THE JSON CONTAINING ALL THE DETAILS ABOUT THE CHARACTER.
