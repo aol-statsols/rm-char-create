@@ -59,5 +59,5 @@ char.Class <- choose_Generic("Profession",classes)
     }
 char.Realm.Name <- realms[ realms.Stats.Short %in% char.Realm ]
     
-    return( list( c( char.Class, char.Class.FullName), stats.Tmp.Pot, c( char.Realm, char.Realm.Name ) ) )
+    return( list( c( char.Class, char.Class.FullName), stats.Tmp.Pot, char.Realm, char.Realm.Name ) )
 }
