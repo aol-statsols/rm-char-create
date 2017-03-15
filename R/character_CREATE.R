@@ -171,7 +171,9 @@ recreate.Command[7:17] = background.Stuff[[1]]
     } else{ 
         stat.Tmp <- background_Options.Benefits.NO.ROLLING[[3]] 
         stat.Pot <- background_Options.Benefits.NO.ROLLING[[4]]
-        level_0_Skills.Increase.Record.List[[1]] <- level_0_Skills.Increase.Record.List[[1]][,"NumTimesIncreased"] + background_Options.Benefits.NO.ROLLING[[5]][,"NumTimesIncreased"]
+        level_0_Skills.Increase.Record.List[[1]][,"NumTimesIncreased"] <- level_0_Skills.Increase.Record.List[[1]][,"NumTimesIncreased"] + background_Options.Benefits.NO.ROLLING[[5]][,"NumTimesIncreased"]
+        level_0_Skills.Increase.Record.List[[1]][,"TotalRanks"] <- level_0_Skills.Increase.Record.List[[1]][,"NumTimesIncreased"] 
+        skills.Increase.Record.DF.Level_1[,"TotalRanks"] <- level_0_Skills.Increase.Record.List[[1]][,"TotalRanks"]
     }                  
      
     char.Age.List <- list( char.Age )
